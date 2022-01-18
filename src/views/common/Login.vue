@@ -16,6 +16,8 @@
             span 로그인
           .button 
             span 계정 찾기
+          .button(@click="movePage('signUp', {})")
+            span 회원가입
 </template>
 
 <script>
@@ -35,6 +37,9 @@ export default {
         .catch((e) => {
           console.log(e);
         });
+    },
+    movePage(path, params) {
+      this.$emit("movePage", path, params);
     },
   },
 };
@@ -58,7 +63,7 @@ export default {
       background-position: center;
       background-repeat: no-repeat;
       background-size: contain;
-      background-image: url("../assets/images/minions-login.png");
+      background-image: url("../../assets/images/minions-login.png");
     }
     &-right {
       width: 100%;

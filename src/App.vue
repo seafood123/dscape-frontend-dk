@@ -4,9 +4,20 @@
     <router-link class="link" to="/about">About</router-link>
     <router-link class="link" to="/login">로그인</router-link>
   </div>
-  <router-view />
+  <router-view @movePage="movePage" />
 </template>
-
+<script>
+export default {
+  methods: {
+    movePage(path, params) {
+      this.$router.push({
+        path: path,
+        params: params,
+      });
+    },
+  },
+};
+</script>
 <style lang="scss">
 @import "styles/global.scss";
 body {
