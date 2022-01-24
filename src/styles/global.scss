@@ -1,6 +1,7 @@
 $solid-color: #35495e;
 $solid-color-hover: #798797;
 $gray: #cdcdcd;
+$correct:  #3bcb50;
 
 @font-face {
     font-family: 'Cafe24SsurroundAir';
@@ -64,8 +65,15 @@ table {
     border: 0;
     padding: 0;
     cursor: pointer;
+    width: 120px;
+    height: 30px;
+    border-radius: 5px;
     &:hover {
         background-color: $solid-color-hover;
+    }
+    display: flex;
+    & > span {
+        margin: auto;
     }
 }
 
@@ -80,10 +88,50 @@ table {
 
 input {
     border: 1px solid $gray;
+    padding: 5px;
+    &:focus {
+        outline: none;
+        border-bottom: 2px solid $solid-color;
+    }
+    &::placeholder{
+        color: $gray;
+    }
 }
 
 input.borderless {
-    border-top: none;
-    border-left: none;
-    border-right: none;
+    border: none;
+    border-bottom: 1px solid $solid-color-hover;
+    padding: 5px;
+    width: 200px;
+    &:focus {
+        outline: none;
+        border-bottom: 2px solid $solid-color;
+    }
+    &::placeholder{
+        color: $gray;
+    }
+}
+
+input.error {
+    border: none;
+    border-bottom: 1px solid red;
+    animation: shake .1s linear;
+    -webkit-animation: shake .1s linear;
+    animation-iteration-count: 5;
+    &:focus {
+        outline: none;
+        border-bottom: 2px solid red;
+    }
+}
+
+input.correct {
+    border: none;
+    border-bottom: 1px solid $correct;
+    animation: shake .1s linear;
+    -webkit-animation: shake .1s linear;
+    animation-iteration-count: 5;
+    &:focus {
+        outline: none;
+        border-bottom: 2px solid $correct;
+    }
 }

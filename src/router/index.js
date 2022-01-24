@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import Login from "../views/common/Login.vue";
-import SignUp from "../views/common/SignUp.vue";
+// import Login from "@/views/common/Login.vue";
+// import SignUp from "@/views/common/SignUp.vue";
 
 const routes = [
   {
@@ -21,17 +21,17 @@ const routes = [
   {
     path: "/login",
     name: "Login",
-    component: Login,
+    component: () => import("@/views/common/Login.vue"),
   },
   {
     path: "/signUp",
     name: "SignUp",
-    component: SignUp,
+    component: () => import("@/views/common/SignUp.vue"),
   },
 ];
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  history: createWebHistory("dev"),
   routes,
 });
 
